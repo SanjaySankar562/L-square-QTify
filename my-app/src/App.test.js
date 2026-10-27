@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders the QTify landing page', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByText(/100 thousand songs, ad-free/i)).toBeInTheDocument();
+  expect(screen.getByRole('searchbox', { name: /search/i })).toBeInTheDocument();
 });
