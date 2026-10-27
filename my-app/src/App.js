@@ -1,24 +1,15 @@
-import logo from './logo.svg';
+import Hero from './components/Hero/Hero.jsx';
+import Search from './components/Search/Search.jsx';
+import Navbar from './components/Navbar/Navbar.jsx';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Copy Nothing
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Hero />
+      <Navbar />
+      <Search />
+    </>
   );
 }
 
