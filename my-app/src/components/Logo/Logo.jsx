@@ -1,5 +1,6 @@
 import React from "react";
+import LogoImage from "../../assets/Group 1.png";
 
 export default function Logo() {
-  return <span style={{ color: "var(--color-black)", fontWeight: 700 }}>QTify</span>;
+  return <img src={LogoImage} alt="logo" width={67} />;
 }
