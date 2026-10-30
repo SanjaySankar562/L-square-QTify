@@ -2,7 +2,7 @@ import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Section from '../Section/Section';
-import Box from '@mui/material/Box';
+import styles from './Songs.module.css';
 
 const tabNames = ['All', 'Rock', 'Pop', 'Jazz', 'Blues'];
 
@@ -18,7 +18,7 @@ function CustomTabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {value === index && <div className={styles.panelContent}>{children}</div>}
     </div>
   );
 }
@@ -39,26 +39,26 @@ export default function BasicTabs() {
 
   return (
     <>
-    <Box sx={{ width: '100%', color: '#FFFFFF' }}>
-      <h1 style={{ color: '#FFFFFF' }}>Songs</h1>
-      <Box sx={{ width: '100%' }}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+    <div className={styles.songs}>
+      <h1 className={styles.title}>Songs</h1>
+      <div className={styles.tabsContainer}>
+        <div className={styles.tabsBar}>
           <Tabs
             value={value}
             onChange={handleChange}
             aria-label="song genres"
-            sx={{ '& .MuiTabs-indicator': { backgroundColor: '#34C94B' } }}
+            className={styles.tabs}
           >
             {tabNames.map((name, index) => (
               <Tab
                 key={name}
                 label={name}
-                sx={{ color: '#FFFFFF', '&.Mui-selected': { color: '#34C94B' } }}
+                className={styles.tab}
                 {...a11yProps(index)}
               />
             ))}
           </Tabs>
-        </Box>
+        </div>
         {tabNames.map((name, index) => (
           <CustomTabPanel key={name} value={value} index={index}>
             <Section
@@ -69,9 +69,9 @@ export default function BasicTabs() {
             />
           </CustomTabPanel>
         ))}
-      </Box>
-    </Box>
-      <hr style={{ width: '100%', height: '2px', border: 0, backgroundColor: '#34C94B' }} />
+      </div>
+    </div>
+      <hr className={styles.divider} />
     </>
   );
 }

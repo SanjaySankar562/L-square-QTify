@@ -1,0 +1,40 @@
+.title {
+  margin-bottom: 1rem;
+  color: #ffffff;
+  font-size: 4rem;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(770px, 1fr));
+  gap: 32px;
+  padding: 10px;
+}
+
+.accordion:global(.MuiAccordion-root) {
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.accordion:global(.MuiAccordion-root)::before {
+  display: none;
+}
+
+.expandIcon {
+  color: #34c94b;
+}
+
+.details:global(.MuiAccordionDetails-root) {
+  border: 1px solid #ffffff;
+  background-color: #ffffff;
+  color: #121212;
+}
+
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,3 +1,37 @@
+.container {
+  position: relative;
+}
+
+.listbox {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: max-content;
+  max-height: 500px;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid var(--color-primary);
+  border-radius: 0 0 10px 10px;
+  background-color: var(--color-black);
+  list-style: none;
+}
+
+.listbox .listElement:global(.Mui-focused) {
+  background-color: #4a8df6;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.listElement:active {
+  background-color: #2977f5;
+  color: #ffffff;
+}
+
 .search {
   padding: 14px 20px;
   height: 48px;

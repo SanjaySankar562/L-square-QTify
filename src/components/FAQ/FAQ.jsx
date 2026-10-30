@@ -4,44 +4,44 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Box } from '@mui/system';  
+import styles from './FAQ.module.css';
 
 export default function AccordionExpandIcon() {
   const id = React.useId();
   return (
     <div>
-        <h1 style={{ color: "#ffffff", fontSize: "4rem", marginBottom: "1rem", textAlign: "center" }}>FAQs</h1>
-        <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(770px, 1fr))',gap: 4, padding: '10px' }}>
-            <Accordion sx={{ backgroundColor: '#121212',color: '#ffffff', border: '1px solid #ffffff', borderRadius: '10px' }}  >
+        <h1 className={styles.title}>FAQs</h1>
+        <div className={styles.grid}>
+            <Accordion className={styles.accordion}>
                 <AccordionSummary
-                expandIcon={<KeyboardArrowDownIcon sx={{ color: '#34C94B' }} />}
+                expandIcon={<KeyboardArrowDownIcon className={styles.expandIcon} />}
                 aria-controls={`${id}-panel1-content`}
                 id={`${id}-panel1-header`}
                 >
                 <Typography component="span">Is QTify free to use?</Typography>
                 </AccordionSummary>
-                <AccordionDetails sx={{ backgroundColor: '#ffffff',color: '#121212', border: '1px solid #ffffff'}}>
+                <AccordionDetails className={styles.details}>
                 <Typography>
                     Yes! It is 100% free, and has 0% ads!
                 </Typography>
                 </AccordionDetails>
             </Accordion>
 
-            <Accordion sx={{ backgroundColor: '#121212',color: '#ffffff', border: '1px solid #ffffff', borderRadius: '10px' }}>
+            <Accordion className={styles.accordion}>
                 <AccordionSummary
-                expandIcon={<KeyboardArrowDownIcon sx={{ color: '#34C94B' }} />}
+                expandIcon={<KeyboardArrowDownIcon className={styles.expandIcon} />}
                 aria-controls={`${id}-panel1-content`}
                 id={`${id}-panel1-header`}
                 >
                 <Typography component="span">Can I download and listen to songs offline?</Typography>
                 </AccordionSummary>
-                <AccordionDetails sx={{ backgroundColor: '#ffffff',color: '#121212', border: '1px solid #ffffff'}}>
+                <AccordionDetails className={styles.details}>
                 <Typography>
                     Sorry, unfortunately we don't provide the service to download any songs.
                 </Typography>
                 </AccordionDetails>
             </Accordion>
-      </Box>
+      </div>
     </div>
   );
 }

@@ -1,8 +1,9 @@
 import MuiButton from '@mui/material/Button';
 import Card from '../Card/Card';
-import Box from '@mui/material/Box';
+import Carousel from '../Carousel/Carousel'; // Don't forget to import it!
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import styles from './Section.module.css';
 
 export default function Section({ title, dataSource, showTitle = true, genre }) {
   const [albums, setAlbums] = useState([]);
@@ -26,32 +27,31 @@ export default function Section({ title, dataSource, showTitle = true, genre }) 
 
   return (
     <>
-    {showTitle ? (
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', padding: '10px' }}>
-        <h1 style={{ color: "#ffffff", fontSize: "2rem", marginBottom: "1rem", textAlign: "center" }}>{title}</h1>
-        <MuiButton variant="text" sx={{ color: "#34C94B", fontWeight: 'bold', textTransform: 'none', fontSize: '1rem' }} onClick={() => setIsCollapsed(!isCollapsed)}>
-          {isCollapsed ? "Show All" : "Collapse"}
-        </MuiButton>
-      </Box>
-    ):(null)}
+      {showTitle ? (
+        <div className={styles.header}>
+          <h1 className={styles.title}>{title}</h1>
+          <MuiButton variant="text" className={styles.toggleButton} onClick={() => setIsCollapsed(!isCollapsed)}>
+            {isCollapsed ? "Show All" : "Collapse"}
+          </MuiButton>
+        </div>
+      ) : null}
 
-        <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(170px, 1fr))', gap: 4, padding: '10px' }}>
-          {isCollapsed 
-            ? filteredAlbums
-                .slice(0, 7)
-                .map((album) => (
-                  <Card key={album.id} image={album.image} follows={album.follows} likes={album.likes} title={album.title} />
-                )) 
-            : filteredAlbums
-                .map((album) => (
-                  <Card key={album.id} image={album.image} follows={album.follows} likes={album.likes} title={album.title} />
-                ))
-          }
-        </Box>
+      {/* We only apply the grid CSS when we are NOT collapsed */}
+      <div className={`${styles.cards} ${isCollapsed ? '' : styles.expandedGrid}`}>
+        {isCollapsed 
+          ? <Carousel 
+              data={filteredAlbums} 
+              renderComponent={(album) => <Card follows={album.follows} image={album.image} key={album.id} title={album.title} />} 
+            />
+          : filteredAlbums.map((album) => (
+              <Card key={album.id} image={album.image} follows={album.follows} title={album.title} />
+            ))
+        }
+      </div>
 
-        {showTitle ? (
-        <hr style={{ width: '100%', height: '2px', border: 0, backgroundColor: '#34C94B' }}/>
-        ):(null)}
+      {showTitle ? (
+        <hr className={styles.divider} />
+      ) : null}
     </>
   );
 }
