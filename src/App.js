@@ -1,7 +1,8 @@
 import Hero from './components/Hero/Hero.jsx';
 import Navbar from './components/Navbar/Navbar.jsx';
 import Section from './components/Section/Section.jsx';
-import Accordion from './components/Accordion/Accordion.jsx';
+import FAQ from './components/FAQ/FAQ.jsx';
+import Songs from './components/Songs/Songs.jsx';
 import './App.css';
 
 function App() {
@@ -9,11 +10,10 @@ function App() {
     <>
       <Navbar />
       <Hero />
-      <Section />
-      <hr
-        style={{ width: '100%', height: '2px', border: 0, backgroundColor: '#34C94B' }}
-      />
-      <Accordion />
+      <Section dataSource="https://qtify-backend.labs.crio.do/albums/top" title="Top Album" />
+      <Section dataSource="https://qtify-backend.labs.crio.do/albums/new" title="New Album" />
+      <Songs/>
+      <FAQ/>
     </>
   );
 }

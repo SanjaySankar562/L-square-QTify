@@ -6,7 +6,10 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import CardActionArea from '@mui/material/CardActionArea';
 
-export default function ActionAreaCard({image, follows, title}) {
+export default function ActionAreaCard({image, follows, likes, title}) {
+  const count = follows ?? likes;
+  const countLabel = follows !== undefined ? 'Follows' : 'Likes';
+
   return (
     <Box sx={{ width: '100%' }}>
       <Card sx={{ width: '100%', borderRadius: '10px', boxShadow: 'none' }}>
@@ -18,7 +21,7 @@ export default function ActionAreaCard({image, follows, title}) {
             alt={title}
           />  
           <Stack direction="row" spacing={5} sx={{ padding: '5px', backgroundColor: '#ffffff' }}>
-            <Chip label={`${follows} Follows`} sx={{ backgroundColor: '#121212', color: '#ffffff', height: 23, alignItems: 'center', justifyContent: 'left'}}/>
+            <Chip label={`${count} ${countLabel}`} sx={{ backgroundColor: '#121212', color: '#ffffff', height: 23, alignItems: 'center', justifyContent: 'left'}}/>
           </Stack>
         </CardActionArea>
       </Card>

@@ -18,12 +18,11 @@ export default function AccordionExpandIcon() {
                 aria-controls={`${id}-panel1-content`}
                 id={`${id}-panel1-header`}
                 >
-                <Typography component="span">Accordion 1</Typography>
+                <Typography component="span">Is QTify free to use?</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails sx={{ backgroundColor: '#ffffff',color: '#121212', border: '1px solid #ffffff'}}>
                 <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget.
+                    Yes! It is 100% free, and has 0% ads!
                 </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -34,12 +33,11 @@ export default function AccordionExpandIcon() {
                 aria-controls={`${id}-panel1-content`}
                 id={`${id}-panel1-header`}
                 >
-                <Typography component="span">Accordion 1</Typography>
+                <Typography component="span">Can I download and listen to songs offline?</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails sx={{ backgroundColor: '#ffffff',color: '#121212', border: '1px solid #ffffff'}}>
                 <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget.
+                    Sorry, unfortunately we don't provide the service to download any songs.
                 </Typography>
                 </AccordionDetails>
             </Accordion>
