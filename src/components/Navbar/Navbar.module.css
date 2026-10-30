@@ -1,0 +1,28 @@
+.navbar {
+  background-color: #34C94B;
+  height: 74px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0px 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 568px) minmax(0, 1fr);
+  align-items: center;
+}
+
+.navbar > :nth-child(2) {
+  width: 100%;
+  min-width: 0;
+  justify-self: center;
+}
+
+.navbar > :last-child {
+  justify-self: end;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0 16px;
+    gap: 12px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+}
