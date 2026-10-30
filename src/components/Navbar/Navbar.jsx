@@ -6,6 +6,7 @@ import Search from "../Search/Search";
 import styles from "./Navbar.module.css";
 
 function Navbar({ searchData }) {
+  // The grid keeps branding, search, and the feedback action aligned.
   return (
     <nav className={styles.navbar}>
       <Link to="/">

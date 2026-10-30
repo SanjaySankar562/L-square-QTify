@@ -5,6 +5,7 @@ import { useAutocomplete } from "@mui/base/useAutocomplete";
 import { useNavigate } from "react-router-dom";
 
 function Search({ searchData, placeholder }) {
+  // MUI autocomplete supplies keyboard navigation and matching suggestions.
   const {
     getRootProps,
     value,
@@ -21,9 +22,11 @@ function Search({ searchData, placeholder }) {
   const navigate = useNavigate();
   const onSubmit = (e, value) => {
     e.preventDefault();
+    // A selected album opens its route instead of submitting a page reload.
     if (value) navigate(`/album/${value.slug}`);
   };
 
+  // Render the suggestion list only while matching albums are available.
   return (
     <div className={styles.container}>
       <form
@@ -54,7 +57,6 @@ function Search({ searchData, placeholder }) {
       {groupedOptions.length > 0 ? (
         <ul className={styles.listbox} {...getListboxProps()}>
           {groupedOptions.map((option, index) => {
-            // console.log(option);
             const artists = option.songs.reduce((accumulator, currentValue) => {
               accumulator.push(...currentValue.artists);
               return accumulator;

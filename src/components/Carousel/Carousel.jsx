@@ -8,8 +8,10 @@ import styles from './Carousel.module.css';
 import 'swiper/css';
 
 export default function Carousel({ data, renderComponent }) {
+  // Keep the Swiper instance available to the custom navigation controls.
   const swiperRef = React.useRef(null);
 
+  // Auto sizing lets the stylesheet set a consistent width for each card.
   return (
     <div className={styles.carousel}>
       <Swiper
@@ -24,6 +26,7 @@ export default function Carousel({ data, renderComponent }) {
           </SwiperSlide>
         ))}
       </Swiper>
+      {/* Custom controls match the app's green circular carousel arrows. */}
       <IconButton
         aria-label="Previous cards"
         onClick={() => swiperRef.current?.slidePrev()}

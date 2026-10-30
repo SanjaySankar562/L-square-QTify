@@ -1,3 +1,4 @@
+/* Feedback action styling used by the navigation button. */
 .feedbackButton:global(.MuiButton-root) {
   width: 170px;
   height: 47px;

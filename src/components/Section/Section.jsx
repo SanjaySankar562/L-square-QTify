@@ -1,6 +1,6 @@
 import MuiButton from '@mui/material/Button';
 import Card from '../Card/Card';
-import Carousel from '../Carousel/Carousel'; // Don't forget to import it!
+import Carousel from '../Carousel/Carousel';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './Section.module.css';
@@ -10,6 +10,7 @@ export default function Section({ title, dataSource, showTitle = true, genre }) 
   const [isCollapsed, setIsCollapsed] = useState(true);
 
   useEffect(() => {
+    // Reload section content whenever its backend endpoint changes.
     const fetchData = async () => {
       try {
         const response = await axios.get(dataSource);
@@ -21,6 +22,7 @@ export default function Section({ title, dataSource, showTitle = true, genre }) 
     fetchData();
   }, [dataSource]);
 
+  // Apply genre filtering only to sections that request a genre.
   const filteredAlbums = genre
     ? albums.filter((album) => album.genre?.label === genre)
     : albums;
@@ -36,7 +38,7 @@ export default function Section({ title, dataSource, showTitle = true, genre }) 
         </div>
       ) : null}
 
-      {/* We only apply the grid CSS when we are NOT collapsed */}
+      {/* Collapsed sections use a carousel; expanded sections use a card grid. */}
       <div className={`${styles.cards} ${isCollapsed ? '' : styles.expandedGrid}`}>
         {isCollapsed 
           ? <Carousel 

@@ -8,8 +8,10 @@ import './App.css';
 function App() {
   return (
     <>
+      {/* The landing page is composed from shared navigation, content, and FAQ sections. */}
       <Navbar />
       <Hero />
+      {/* Each album section loads its own dataset from the backend. */}
       <Section dataSource="https://qtify-backend.labs.crio.do/albums/top" title="Top Album" />
       <Section dataSource="https://qtify-backend.labs.crio.do/albums/new" title="New Album" />
       <Songs/>

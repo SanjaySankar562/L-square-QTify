@@ -7,11 +7,13 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import styles from './FAQ.module.css';
 
 export default function AccordionExpandIcon() {
+  // Generate a unique prefix so FAQ panel labels stay associated and accessible.
   const id = React.useId();
   return (
     <div>
         <h1 className={styles.title}>FAQs</h1>
         <div className={styles.grid}>
+            {/* Each item pairs its summary with the answer revealed on expansion. */}
             <Accordion className={styles.accordion}>
                 <AccordionSummary
                 expandIcon={<KeyboardArrowDownIcon className={styles.expandIcon} />}

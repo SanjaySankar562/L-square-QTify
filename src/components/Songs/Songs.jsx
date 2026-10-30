@@ -6,6 +6,7 @@ import styles from './Songs.module.css';
 
 const tabNames = ['All', 'Rock', 'Pop', 'Jazz', 'Blues'];
 
+// Connect each tab to its matching panel for keyboard and screen-reader access.
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -33,6 +34,7 @@ function a11yProps(index) {
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
 
+  // MUI supplies the next selected tab index when a tab is activated.
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -43,6 +45,7 @@ export default function BasicTabs() {
       <h1 className={styles.title}>Songs</h1>
       <div className={styles.tabsContainer}>
         <div className={styles.tabsBar}>
+          {/* Reuse the same song section and change only its selected genre. */}
           <Tabs
             value={value}
             onChange={handleChange}

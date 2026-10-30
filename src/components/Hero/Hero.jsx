@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Hero.module.css";
 
 function Hero() {
+  // Introductory banner combines the service headline with its artwork.
   return (
     <div className={styles.hero}>
       <div>
